@@ -42,9 +42,15 @@ class MySavings {
     if (choice >= 2 && choice <= 5) {
       // Add the money to the bank
       piggyBank.addMoney(choice);
+
+      clearScreen();
     } else if (choice == 1) {
+      addLineBreak();
+      
       // Display the total in the bank
       System.out.println("You have $" + piggyBank.getTotal());
+      
+      addLineBreak();
     } else if (choice == 6) {
       // Get the user's withdrawal amount
       System.out.print("How much money would you like to take out: ");
@@ -52,6 +58,7 @@ class MySavings {
 
       // Check if the withdrawal amount is valid. if it is not ask for a new amount.
       while (withdrawalAmount > piggyBank.getTotal()) {
+        addLineBreak();
         System.out.println("You don't have enough money in the bank.");
         System.out.print("How much money would you like to take out: ");
         withdrawalAmount = in.nextDouble();
@@ -59,7 +66,22 @@ class MySavings {
 
       // Take the money out of the bank 
       piggyBank.takeMoney(withdrawalAmount);
+
+      clearScreen();
+    } else {
+      addLineBreak();
+      System.out.println("Invalid choice.");
+      addLineBreak();
     }
   }
 
+  private static void addLineBreak() {
+    System.out.println();
+  }
+
+  // Create a function that clears the screen
+  private static void clearScreen() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+  }
 }
