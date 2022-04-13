@@ -1,3 +1,16 @@
+/*
+ICS4UE - April 13, 2022
+I have coded this program following our Academic Honesty policy.
+
+SOURCES
+-------
+StackOverflow. (2015, August 30). java - How to clear the console? Stack Overflow. https://stackoverflow.com/a/32295974
+
+Consultation
+------------
+I consulted with my EA at Bloorview School, Colin Smith.
+*/
+
 import java.util.Scanner;
 class MySavings {
   public static void main(String[] args) {
@@ -81,6 +94,7 @@ class MySavings {
 
   // Create a function that clears the screen
   private static void clearScreen() {
+    // Got this code from https://stackoverflow.com/a/32295974
     System.out.print("\033[H\033[2J");
     System.out.flush();
   }

@@ -1,3 +1,16 @@
+/*
+ICS4UE - April 13, 2022
+I have coded this program following our Academic Honesty policy.
+
+SOURCES
+-------
+N/A
+
+Consultation
+------------
+I consulted with my EA at Bloorview School, Colin Smith.
+*/
+
 public class PiggyBank {
   private double pennies;
   private double nickels;
