@@ -1,8 +1,10 @@
 public class PiggyBank {
-  private int pennies;
-  private int nickels;
-  private int dimes;
-  private int quarters;
+  private double pennies;
+  private double nickels;
+  private double dimes;
+  private double quarters;
+
+  private double total = 0;
 
   public PiggyBank() {
     this.pennies = 0;
@@ -11,24 +13,59 @@ public class PiggyBank {
     this.quarters = 0;
   }
 
-  public void addPenny() {
+  // Getter method for total
+  public double getTotal() {
+    // Round the total to two decimal places
+    this.total = Math.round(this.total * 100.0) / 100.0;
+
+    return this.total;
+  }
+
+  // Create methods to add money to the bank
+  private void addPenny() {
     this.pennies++;
+    this.total += 0.01;
   }
 
-  public void addNickel() {
+  private void addNickel() {
     this.nickels++;
+    this.total += 0.05;
   }
 
-  public void addDime() {
+  private void addDime() {
     this.dimes++;
+    this.total += 0.10;
   }
 
-  public void addQuarter() {
+  private void addQuarter() {
     this.quarters++;
+    this.total += 0.25;
   }
 
-  public int total() {
-    return this.pennies + this.nickels * 5 + this.dimes * 10 + this.quarters * 25;
+  public void addMoney(int choice) {
+    if (choice == 2) {
+      this.addPenny();
+    } else if (choice == 3) {
+      this.addNickel();
+    } else if (choice == 4) {
+      this.addDime();
+    } else if (choice == 5) {
+      this.addQuarter();
+    }
+
+    // Round the total to two decimal places
+    this.total = Math.round(this.total * 100.0) / 100.0;
+
+    System.out.println("You have $" + this.total);
+  }
+
+  public void takeMoney(double amount) {
+    this.total -= amount;
+
+    // Round the total to two decimal places
+    this.total = Math.round(this.total * 100.0) / 100.0;
+
+    System.out.println("You have $" + this.total);
   }
 
   public String toString() {
