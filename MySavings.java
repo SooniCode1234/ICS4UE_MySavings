@@ -67,7 +67,7 @@ class MySavings {
       piggyBank.addMoney(choice);
 
       // If the piggyBank.getTotal() is greater than the piggyBank.getMax(), set the piggyBank.total to the piggyBank.max.
-      if (piggyBank.getTotal() >   piggyBank.getMax()) {
+      if (piggyBank.getTotal() > piggyBank.getMax()) {
         addLineBreak();
         System.out.println("You have $" + piggyBank.getTotal() + " in the bank, but you can only have $" + piggyBank.getMax() + ". You will be reset to $" + piggyBank.getMax() + ".");
         piggyBank.setTotal(piggyBank.getMax());
@@ -87,12 +87,28 @@ class MySavings {
       System.out.print("How much money would you like to take out: ");
       double withdrawalAmount = in.nextDouble();
 
+      boolean wantToExit = false;
+
       // Check if the withdrawal amount is valid. if it is not ask for a new amount.
       while (withdrawalAmount > piggyBank.getTotal()) {
         addLineBreak();
         System.out.println("You don't have enough money in the bank.");
-        System.out.print("How much money would you like to take out: ");
+        // Display the total in the bank
+        System.out.println("You have $" + piggyBank.getTotal());
+        System.out.print("How much money would you like to take out or type 0 to go back to the menu: ");
         withdrawalAmount = in.nextDouble();
+
+        // If the user enters 0, set wantToExit to true and break the loop.
+        if (withdrawalAmount == 0) {
+          wantToExit = true;
+          break;
+        }
+      }
+
+      // If the user wants to exit, break the loop.
+      if (wantToExit) {
+        clearScreen();
+        return;
       }
 
       // Take the money out of the bank 
