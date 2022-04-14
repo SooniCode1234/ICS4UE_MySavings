@@ -13,6 +13,7 @@ I consulted with my EA at Bloorview School, Colin Smith.
 
 public class PiggyBank {
   private double total = 0;
+  private double max = 1.0;
 
   /**
    * A no-argument constructor for the PiggyBank class.
@@ -20,6 +21,7 @@ public class PiggyBank {
   public PiggyBank() {}
 
   /**
+   * Gets the total in the piggy bank.
    * @return the total
    */
   public double getTotal() {
@@ -27,6 +29,25 @@ public class PiggyBank {
     this.total = Math.round(this.total * 100.0) / 100.0;
 
     return this.total;
+  }
+
+  /**
+   * Sets the total in the bank
+   * @param total the total to set
+   */
+  public void setTotal(double newTotal) {
+    this.total = newTotal;
+  }
+
+  /**
+   * Gets the maximum that the bank can hold.
+   * @return the maximum amount of money that can be in the bank
+   */
+  public double getMax() {
+    // Round the max to two decimal places
+    this.max = Math.round(this.max * 100.0) / 100.0;
+
+    return this.max;
   }
 
   /**

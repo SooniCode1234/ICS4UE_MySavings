@@ -66,7 +66,15 @@ class MySavings {
       // Add the money to the bank
       piggyBank.addMoney(choice);
 
-      clearScreen();
+      // If the piggyBank.getTotal() is greater than the piggyBank.getMax(), set the piggyBank.total to the piggyBank.max.
+      if (piggyBank.getTotal() >   piggyBank.getMax()) {
+        addLineBreak();
+        System.out.println("You have $" + piggyBank.getTotal() + " in the bank, but you can only have $" + piggyBank.getMax() + ". You will be reset to $" + piggyBank.getMax() + ".");
+        piggyBank.setTotal(piggyBank.getMax());
+        addLineBreak();
+      } else {
+        clearScreen();
+      }
     } else if (choice == 1) {
       addLineBreak();
       
