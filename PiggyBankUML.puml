@@ -1,0 +1,13 @@
+@startuml
+class PiggyBank {
+- double total
+- double max
++ <<Create>> PiggyBank()
++ double getTotal()
++ void setTotal(double)
++ double getMax()
++ void addMoney(int)
++ void takeMoney(double)
++ String toString()
+}
+@enduml
