@@ -14,6 +14,7 @@ I consulted with my EA at Bloorview School, Colin Smith.
 import java.util.Scanner;
 class MySavings {
   public static void main(String[] args) {
+    // I use a scanner to read user input
     Scanner in = new Scanner(System.in);
 
     // Create a PiggyBank object
@@ -28,6 +29,7 @@ class MySavings {
 
     // While the user's choice is not 0, keep asking for a choice
     while (choice != 0) {
+      // Acting on whether the user wants to show the total, add money, take money, or quit
       filterInput(choice, in, piggyBank);
 
       // Display the menu
@@ -39,6 +41,9 @@ class MySavings {
     }
   }
 
+  /**
+   * Displays the menu.
+   */
   private static void showMenu() {
     System.out.println("1. Show total in bank.");
     System.out.println("2. Add a penny.");
@@ -49,7 +54,12 @@ class MySavings {
     System.out.println("Enter 0 to quit.");
   }
 
-  // Create a method that filter the user's input.
+  /**
+   * Filters the user's input.
+   * @param choice the user's choice
+   * @param in the Scanner object
+   * @param piggyBank the PiggyBank object
+   */
   private static void filterInput(int choice, Scanner in, PiggyBank piggyBank) {
     // If the user enters a number between 2 and 5, call piggyBank.addMoney(choice). 
     if (choice >= 2 && choice <= 5) {
@@ -88,11 +98,16 @@ class MySavings {
     }
   }
 
+  /**
+   * Adds a line break.
+   */
   private static void addLineBreak() {
     System.out.println();
   }
 
-  // Create a function that clears the screen
+  /**
+   * Clears the screen.
+   */
   private static void clearScreen() {
     // Got this code from https://stackoverflow.com/a/32295974
     System.out.print("\033[H\033[2J");

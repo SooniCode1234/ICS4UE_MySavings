@@ -12,21 +12,16 @@ I consulted with my EA at Bloorview School, Colin Smith.
 */
 
 public class PiggyBank {
-  private double pennies;
-  private double nickels;
-  private double dimes;
-  private double quarters;
-
   private double total = 0;
 
-  public PiggyBank() {
-    this.pennies = 0;
-    this.nickels = 0;
-    this.dimes = 0;
-    this.quarters = 0;
-  }
+  /**
+   * A no-argument constructor for the PiggyBank class.
+   */
+  public PiggyBank() {}
 
-  // Getter method for total
+  /**
+   * @return the total
+   */
   public double getTotal() {
     // Round the total to two decimal places
     this.total = Math.round(this.total * 100.0) / 100.0;
@@ -34,28 +29,40 @@ public class PiggyBank {
     return this.total;
   }
 
-  // Create methods to add money to the bank
+  /**
+   * Adds a penny to the total.
+   */ 
   private void addPenny() {
-    this.pennies++;
     this.total += 0.01;
   }
 
+  /**
+   * Adds a nickel to the total.
+   */
   private void addNickel() {
-    this.nickels++;
     this.total += 0.05;
   }
 
+  /**
+   * Adds a dime to the total.
+   */
   private void addDime() {
-    this.dimes++;
     this.total += 0.10;
   }
 
+  /**
+   * Adds a quarter to the total.
+   */
   private void addQuarter() {
-    this.quarters++;
     this.total += 0.25;
   }
 
+  /**
+   * Adds money to the bank.
+   * @param choice the user's choice in the menu
+   */
   public void addMoney(int choice) {
+    // See if the user's choice is between 2 and 5, and if so, calling the appropriate method.
     if (choice == 2) {
       this.addPenny();
     } else if (choice == 3) {
@@ -72,6 +79,10 @@ public class PiggyBank {
     System.out.println("You have $" + this.total);
   }
 
+  /**
+   * Removes money from the bank.
+   * @param amount the amount of money to remove
+   */
   public void takeMoney(double amount) {
     this.total -= amount;
 
@@ -81,8 +92,11 @@ public class PiggyBank {
     System.out.println("You have $" + this.total);
   }
 
+  /**
+   * Formats the object when printed.
+   * @return the total as a string
+   */
   public String toString() {
-    return "This piggy bank contains " + this.pennies + " pennies, " + this.nickels + " nickels, " + this.dimes
-        + " dimes, and " + this.quarters + " quarters.";
+    return "You have $" + this.total + " in the bank.";
   }
 }
