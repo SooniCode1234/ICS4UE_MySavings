@@ -30,47 +30,19 @@ public class PiggyBank {
   }
 
   /**
-   * Adds a penny to the total.
-   */ 
-  private void addPenny() {
-    this.total += 0.01;
-  }
-
-  /**
-   * Adds a nickel to the total.
-   */
-  private void addNickel() {
-    this.total += 0.05;
-  }
-
-  /**
-   * Adds a dime to the total.
-   */
-  private void addDime() {
-    this.total += 0.10;
-  }
-
-  /**
-   * Adds a quarter to the total.
-   */
-  private void addQuarter() {
-    this.total += 0.25;
-  }
-
-  /**
    * Adds money to the bank.
    * @param choice the user's choice in the menu
    */
   public void addMoney(int choice) {
-    // See if the user's choice is between 2 and 5, and if so, calling the appropriate method.
+    // See if the user's choice is between 2 and 5, and if so, adding the appropriate value to total.
     if (choice == 2) {
-      this.addPenny();
+      total += 0.01;
     } else if (choice == 3) {
-      this.addNickel();
+      total += 0.05;
     } else if (choice == 4) {
-      this.addDime();
+      total += 0.10;
     } else if (choice == 5) {
-      this.addQuarter();
+      total += 0.25;
     }
 
     // Round the total to two decimal places
